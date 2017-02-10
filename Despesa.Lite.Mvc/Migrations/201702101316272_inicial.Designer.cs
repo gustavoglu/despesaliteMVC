@@ -7,13 +7,13 @@ namespace Despesa.Lite.Mvc.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class nullablefields : IMigrationMetadata
+    public sealed partial class inicial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(nullablefields));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(inicial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201702100109221_nullablefields"; }
+            get { return "201702101316272_inicial"; }
         }
         
         string IMigrationMetadata.Source

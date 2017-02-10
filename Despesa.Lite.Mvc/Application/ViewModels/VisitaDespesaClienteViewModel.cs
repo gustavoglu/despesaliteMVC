@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Despesa.Lite.Mvc.Application.ViewModels
 {
@@ -8,6 +9,6 @@ namespace Despesa.Lite.Mvc.Application.ViewModels
 
         public VisitaViewModel Visita { get; set; }
 
-        public Collection<DespesaViewModel> Despesas { get; set; }
+        public ICollection<DespesaViewModel> Despesas { get; set; }
     }
 }

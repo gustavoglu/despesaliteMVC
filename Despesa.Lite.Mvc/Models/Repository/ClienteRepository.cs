@@ -47,11 +47,11 @@ namespace Despesa.Lite.Mvc.Models.Repository
             {
                 return
 
-                    from cliente in db.Set<Cliente>()
-                    join clienteusuario in db.Set<Cliente_Usuarios>() on cliente.Id equals clienteusuario.id_cliente
-                    where clienteusuario.id_usuario == usuario.Id && cliente.Ativo == true
-                    select cliente;
-            }
+                    (from cliente in db.Set<Cliente>().ToList()
+                     join clienteusuario in db.Set<Cliente_Usuarios>() on cliente.Id equals clienteusuario.id_cliente
+                     where clienteusuario.id_usuario == usuario.Id && cliente.Ativo == true
+                     select cliente).ToList(); ;
+            }  
         }
 
         public override IEnumerable<Cliente> TrazerTodos()
@@ -93,10 +93,10 @@ namespace Despesa.Lite.Mvc.Models.Repository
             {
                 return
 
-                   from cliente in db.Set<Cliente>()
+                   (from cliente in db.Set<Cliente>()
                    join clienteusuario in db.Set<Cliente_Usuarios>() on cliente.Id equals clienteusuario.id_cliente
                    where clienteusuario.id_usuario == usuario.Id && cliente.Deletado == true
-                   select cliente;
+                   select cliente).ToList();
             }
         }
 
@@ -116,10 +116,10 @@ namespace Despesa.Lite.Mvc.Models.Repository
             {
                 return
 
-                   from cliente in db.Set<Cliente>()
+                   (from cliente in db.Set<Cliente>()
                    join clienteusuario in db.Set<Cliente_Usuarios>() on cliente.Id equals clienteusuario.id_cliente
                    where clienteusuario.id_usuario == usuario.Id && cliente.Ativo == false
-                   select cliente;
+                   select cliente).ToList();
             }
         }
     }

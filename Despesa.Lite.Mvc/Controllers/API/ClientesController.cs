@@ -15,11 +15,11 @@ using Despesa.Lite.Mvc.Application.Services;
 
 namespace Despesa.Lite.Mvc.Controllers.API
 {
-    public class ClienteViewModelsController : ApiController
+    public class ClientesController : ApiController
     {
         private readonly IClienteAppService _ClienteAppService;
 
-        public ClienteViewModelsController()
+        public ClientesController()
         {
             _ClienteAppService = new ClienteAppService();
         }
@@ -84,22 +84,10 @@ namespace Despesa.Lite.Mvc.Controllers.API
                 return BadRequest(ModelState);
             }
 
-            //try
-            //{
+      
                 _ClienteAppService.Criar(clienteViewModel);
 
-            //}
-            //catch (DbUpdateException)
-            //{
-            //    if (ClienteViewModelExists(clienteViewModel.Id))
-            //    {
-            //        return Conflict();
-            //    }
-            //    else
-            //    {
-            //        throw;
-            //    }
-            //}
+
 
             return CreatedAtRoute("DefaultApi", new { id = clienteViewModel.Id }, clienteViewModel);
         }

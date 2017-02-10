@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Despesa.Lite.Mvc.Application.Interfaces
 {
-   public interface ICliente_UsuariosAppService
+   public interface ICliente_UsuariosAppService : IDisposable
     {
         Cliente_UsuariosViewModel Criar(Cliente_UsuariosViewModel cliente_UsuariosViewModel);
 

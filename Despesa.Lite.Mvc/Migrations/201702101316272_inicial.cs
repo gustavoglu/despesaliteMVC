@@ -3,7 +3,7 @@ namespace Despesa.Lite.Mvc.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class incial : DbMigration
+    public partial class inicial : DbMigration
     {
         public override void Up()
         {
@@ -19,10 +19,10 @@ namespace Despesa.Lite.Mvc.Migrations
                         AtualizadoPor = c.String(maxLength: 100, unicode: false),
                         AtivadoPor = c.String(maxLength: 100, unicode: false),
                         DesativadoPor = c.String(maxLength: 100, unicode: false),
-                        CriadoEm = c.DateTime(nullable: false),
-                        DeletadoEm = c.DateTime(nullable: false),
-                        Ativo = c.Boolean(nullable: false),
-                        Deletado = c.Boolean(nullable: false),
+                        CriadoEm = c.DateTime(),
+                        DeletadoEm = c.DateTime(),
+                        Ativo = c.Boolean(),
+                        Deletado = c.Boolean(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.cliente", t => t.id_cliente)
@@ -42,10 +42,10 @@ namespace Despesa.Lite.Mvc.Migrations
                         AtualizadoPor = c.String(maxLength: 100, unicode: false),
                         AtivadoPor = c.String(maxLength: 100, unicode: false),
                         DesativadoPor = c.String(maxLength: 100, unicode: false),
-                        CriadoEm = c.DateTime(nullable: false),
-                        DeletadoEm = c.DateTime(nullable: false),
-                        Ativo = c.Boolean(nullable: false),
-                        Deletado = c.Boolean(nullable: false),
+                        CriadoEm = c.DateTime(),
+                        DeletadoEm = c.DateTime(),
+                        Ativo = c.Boolean(),
+                        Deletado = c.Boolean(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -66,10 +66,10 @@ namespace Despesa.Lite.Mvc.Migrations
                         AtualizadoPor = c.String(maxLength: 100, unicode: false),
                         AtivadoPor = c.String(maxLength: 100, unicode: false),
                         DesativadoPor = c.String(maxLength: 100, unicode: false),
-                        CriadoEm = c.DateTime(nullable: false),
-                        DeletadoEm = c.DateTime(nullable: false),
-                        Ativo = c.Boolean(nullable: false),
-                        Deletado = c.Boolean(nullable: false),
+                        CriadoEm = c.DateTime(),
+                        DeletadoEm = c.DateTime(),
+                        Ativo = c.Boolean(),
+                        Deletado = c.Boolean(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.cliente", t => t.id_cliente)
@@ -91,10 +91,10 @@ namespace Despesa.Lite.Mvc.Migrations
                         AtualizadoPor = c.String(maxLength: 100, unicode: false),
                         AtivadoPor = c.String(maxLength: 100, unicode: false),
                         DesativadoPor = c.String(maxLength: 100, unicode: false),
-                        CriadoEm = c.DateTime(nullable: false),
-                        DeletadoEm = c.DateTime(nullable: false),
-                        Ativo = c.Boolean(nullable: false),
-                        Deletado = c.Boolean(nullable: false),
+                        CriadoEm = c.DateTime(),
+                        DeletadoEm = c.DateTime(),
+                        Ativo = c.Boolean(),
+                        Deletado = c.Boolean(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.visita", t => t.id_visita)

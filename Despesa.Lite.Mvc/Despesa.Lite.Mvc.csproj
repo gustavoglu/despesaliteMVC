@@ -233,20 +233,20 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\API\ClienteViewModelsController.cs" />
+    <Compile Include="Controllers\API\ClientesController.cs" />
+    <Compile Include="Controllers\API\Cliente_UsuariosController.cs" />
+    <Compile Include="Controllers\API\DespesasController.cs" />
+    <Compile Include="Controllers\API\VisitasController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="CrossCutting\BootStrapper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702092028070_incial.cs" />
-    <Compile Include="Migrations\201702092028070_incial.Designer.cs">
-      <DependentUpon>201702092028070_incial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702100109221_nullablefields.cs" />
-    <Compile Include="Migrations\201702100109221_nullablefields.Designer.cs">
-      <DependentUpon>201702100109221_nullablefields.cs</DependentUpon>
+    <Compile Include="Migrations\201702101316272_inicial.cs" />
+    <Compile Include="Migrations\201702101316272_inicial.Designer.cs">
+      <DependentUpon>201702101316272_inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -330,6 +330,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -343,11 +348,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702092028070_incial.resx">
-      <DependentUpon>201702092028070_incial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702100109221_nullablefields.resx">
-      <DependentUpon>201702100109221_nullablefields.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702101316272_inicial.resx">
+      <DependentUpon>201702101316272_inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

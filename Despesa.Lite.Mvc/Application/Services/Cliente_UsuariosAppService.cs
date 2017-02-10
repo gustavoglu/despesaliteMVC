@@ -9,7 +9,7 @@ using Despesa.Lite.Mvc.Models;
 
 namespace Despesa.Lite.Mvc.Application.Services
 {
-    public class Cliente_UsuariosAppService : ICliente_UsuariosAppService
+    public class Cliente_UsuariosAppService : ICliente_UsuariosAppService 
     {
         protected readonly ICliente_UsuariosRepository _cliente_UsuariosRepository;
 
@@ -36,6 +36,11 @@ namespace Despesa.Lite.Mvc.Application.Services
         public Cliente_UsuariosViewModel Desativar(Cliente_UsuariosViewModel cliente_UsuariosViewModel)
         {
             return Mapper.Map<Cliente_UsuariosViewModel>(_cliente_UsuariosRepository.Desativar(Mapper.Map<Cliente_Usuarios>(cliente_UsuariosViewModel)));
+        }
+
+        public void Dispose()
+        {
+            _cliente_UsuariosRepository.Dispose();
         }
 
         public int Remover(Cliente_UsuariosViewModel cliente_UsuariosViewModel)

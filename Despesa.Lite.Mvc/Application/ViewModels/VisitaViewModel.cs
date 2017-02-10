@@ -27,5 +27,7 @@ namespace Despesa.Lite.Mvc.Application.ViewModels
 
         public ICollection<DespesaViewModel> Despesas { get; set; }
 
+        public ClienteViewModel Cliente { get; set; }
+
     }
 }

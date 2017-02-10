@@ -167,7 +167,7 @@ namespace Despesa.Lite.Mvc.Models.Repository
         {
             username = HttpContext.Current.User.Identity.Name;
             usuario = dbusuario.SingleOrDefault(u => u.UserName == username);
-
+            
             if (usuario.Companhia)
             {
                 return dbSet.Where(e => e.Ativo == true).ToList();
