@@ -240,9 +240,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702091539090_Inicial.cs" />
-    <Compile Include="Migrations\201702091539090_Inicial.Designer.cs">
-      <DependentUpon>201702091539090_Inicial.cs</DependentUpon>
+    <Compile Include="Migrations\201702092028070_incial.cs" />
+    <Compile Include="Migrations\201702092028070_incial.Designer.cs">
+      <DependentUpon>201702092028070_incial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702100109221_nullablefields.cs" />
+    <Compile Include="Migrations\201702100109221_nullablefields.Designer.cs">
+      <DependentUpon>201702100109221_nullablefields.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -339,8 +343,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702091539090_Inicial.resx">
-      <DependentUpon>201702091539090_Inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702092028070_incial.resx">
+      <DependentUpon>201702092028070_incial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702100109221_nullablefields.resx">
+      <DependentUpon>201702100109221_nullablefields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

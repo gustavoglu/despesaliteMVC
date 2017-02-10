@@ -9,11 +9,15 @@ namespace Despesa.Lite.Mvc.Application.ViewModels
 {
     public class DespesaViewModel
     {
+        public DespesaViewModel()
+        {
+            Id = Guid.NewGuid();
+        }
         [Key]
         public Guid Id { get; set; }
 
         [Required(ErrorMessage ="")]
-        public VisitaViewModel Visita { get; set; }
+        public virtual VisitaViewModel Visita { get; set; }
 
         public int Quilometragem { get; set; }
 

@@ -6,6 +6,11 @@ namespace Despesa.Lite.Mvc.Application.ViewModels
 {
     public class VisitaViewModel
     {
+        public VisitaViewModel()
+        {
+            Id = Guid.NewGuid();
+            Despesas = new List<DespesaViewModel>();
+        }
         [Key]
         public Guid Id { get; set; }
 

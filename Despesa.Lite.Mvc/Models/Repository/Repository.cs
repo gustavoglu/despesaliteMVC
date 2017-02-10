@@ -17,13 +17,12 @@ namespace Despesa.Lite.Mvc.Models.Repository
         string username;
 
 
-        public Repository()
+        protected Repository()
         {
             db = new ApplicationDbContext();
             dbSet = db.Set<T>();
             dbusuario = db.Set<ApplicationUser>();
-            username = HttpContext.Current.User.Identity.Name;
-            usuario = dbusuario.SingleOrDefault(u => u.UserName == username);
+   
         }
 
         public virtual T Ativar(T obj)
@@ -60,11 +59,12 @@ namespace Despesa.Lite.Mvc.Models.Repository
 
         public virtual T Criar(T obj)
         {
+
             obj.CriadoEm = DateTime.Now.Date;
             obj.Ativo = true;
             obj.CriadoPor = HttpContext.Current.User.Identity.Name;
 
-            dbSet.Add(obj);
+            var objs = dbSet.Add(obj);
 
             Salvar();
 
@@ -96,11 +96,22 @@ namespace Despesa.Lite.Mvc.Models.Repository
 
         public virtual IEnumerable<T> Pesquisar(Expression<Func<T, bool>> Expressao)
         {
-            return dbSet.Where(Expressao);
+            username = HttpContext.Current.User.Identity.Name;
+            usuario = dbusuario.SingleOrDefault(u => u.UserName == username);
+            if (usuario.Companhia)
+            {
+                return dbSet.Where(Expressao).ToList();
+
+            }else
+            {
+                return dbSet.Where(Expressao).Where(t => t.CriadoPor == username).ToList();
+            }
+            
         }
 
         public virtual int Remover(T obj)
         {
+
             obj.Deletado = true;
             obj.DeletadoEm = DateTime.Now.Date;
             obj.DeletadoPor = HttpContext.Current.User.Identity.Name;
@@ -122,64 +133,82 @@ namespace Despesa.Lite.Mvc.Models.Repository
 
         public virtual T TrazerPorId(Guid Id)
         {
+            username = HttpContext.Current.User.Identity.Name;
+
+            usuario = dbusuario.SingleOrDefault(u => u.UserName == username);
+
             if (usuario.Companhia)
             {
                 return dbSet.SingleOrDefault(e => e.Id == Id);
             }
             else
             {
-                return (from obj in dbSet where obj.CriadoPor == username select obj).SingleOrDefault();
+                return (from obj in dbSet where obj.CriadoPor == username && obj.Id == Id select obj).SingleOrDefault();
             }
         }
 
         public virtual IEnumerable<T> TrazerTodos()
         {
+            username = HttpContext.Current.User.Identity.Name;
+            usuario = dbusuario.SingleOrDefault(u => u.UserName == username);
+
             if (usuario.Companhia)
             {
-                return dbSet;
+                return dbSet.ToList();
             }
             else
             {
-                return from obj in dbSet where obj.CriadoPor == username select obj;
+                return (from obj in dbSet where obj.CriadoPor == username select obj).ToList();
 
             }
         }
 
         public virtual IEnumerable<T> TrazerTodosAtivos()
         {
+            username = HttpContext.Current.User.Identity.Name;
+            usuario = dbusuario.SingleOrDefault(u => u.UserName == username);
+
             if (usuario.Companhia)
             {
-                return dbSet.Where(e => e.Ativo == true);
-            }else
-            {
-                return from obj in dbSet where obj.CriadoPor == username && obj.Ativo == true select obj;
+                return dbSet.Where(e => e.Ativo == true).ToList();
             }
-            
+            else
+            {
+                return (from obj in dbSet where obj.CriadoPor == username && obj.Ativo == true select obj).ToList();
+            }
+
         }
 
         public virtual IEnumerable<T> TrazerTodosDeletados()
         {
+            username = HttpContext.Current.User.Identity.Name;
+            usuario = dbusuario.SingleOrDefault(u => u.UserName == username);
+
             if (usuario.Companhia)
             {
-                return dbSet.Where(e => e.Deletado == true);
+                return dbSet.Where(e => e.Deletado == true).ToList();
             }
             else
             {
-                return from obj in dbSet where obj.CriadoPor == username && obj.Deletado == true select obj;
+                return (from obj in dbSet where obj.CriadoPor == username && obj.Deletado == true select obj).ToList();
             }
-          
+
         }
 
         public virtual IEnumerable<T> TrazerTodosInativos()
         {
+            username = HttpContext.Current.User.Identity.Name;
+            usuario = dbusuario.SingleOrDefault(u => u.UserName == username);
+
             if (usuario.Companhia)
             {
-                return dbSet.Where(e => e.Ativo == false);
-            }else
-            {
-                return from obj in dbSet where obj.CriadoPor == username && obj.Ativo == false select obj;
+                return dbSet.Where(e => e.Ativo == false).ToList();
             }
-            
+            else
+            {
+                return (from obj in dbSet where obj.CriadoPor == username && obj.Ativo == false select obj).ToList();
+            }
+
         }
     }
 }

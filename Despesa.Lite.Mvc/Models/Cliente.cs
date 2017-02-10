@@ -12,14 +12,15 @@ namespace Despesa.Lite.Mvc.Models
             Visitas = new List<Visita>();
 
             Cliente_Usuarios = new List<Cliente_Usuarios>();
+
         }
 
         public string Nome { get; set; }
 
         public string RazaoSocial { get; set; }
 
-        public ICollection<Visita> Visitas { get; set; }
+        public virtual ICollection<Visita> Visitas { get; set; }
 
-        public ICollection<Cliente_Usuarios> Cliente_Usuarios { get; set; }
+        public virtual ICollection<Cliente_Usuarios> Cliente_Usuarios { get; set; }
     }
 }

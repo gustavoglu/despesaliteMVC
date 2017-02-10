@@ -9,6 +9,12 @@ namespace Despesa.Lite.Mvc.Application.ViewModels
 {
     public class ClienteViewModel
     {
+        public ClienteViewModel()
+        {
+            Id = Guid.NewGuid();
+            Visitas = new List<VisitaViewModel>();
+            Cliente_Usuarios = new List<Cliente_UsuariosViewModel>();
+        }
         [Key]
         public Guid Id { get; set; }
 
@@ -19,8 +25,18 @@ namespace Despesa.Lite.Mvc.Application.ViewModels
         [MaxLength(100, ErrorMessage = "")]
         public string RazaoSocial { get; set; }
 
+        [ScaffoldColumn(false)]
+        public DateTime CriadoEm { get; set; }
 
-        public ICollection<VisitaViewModel> Visitas { get; set; }
+        [ScaffoldColumn(false)]
+        public bool Ativo { get; set; }
+
+        [ScaffoldColumn(false)]
+        public bool Deletado { get; set; }
+
+        public virtual ICollection<VisitaViewModel> Visitas { get; set; }
+
+        public virtual ICollection<Cliente_UsuariosViewModel> Cliente_Usuarios { get; set; }
     }
 }
 

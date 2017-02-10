@@ -24,12 +24,12 @@ namespace Despesa.Lite.Mvc.Models
 
         public string DesativadoPor { get; set; } = "";
 
-        public DateTime CriadoEm { get; set; }
+        public DateTime? CriadoEm { get; set; }
 
-        public DateTime DeletadoEm { get; set; }
+        public DateTime? DeletadoEm { get; set; }
 
-        public bool Ativo { get; set; }
+        public bool? Ativo { get; set; }
 
-        public bool Deletado { get; set; }
+        public bool? Deletado { get; set; }
     }
 }

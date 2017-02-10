@@ -3,7 +3,7 @@ namespace Despesa.Lite.Mvc.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Inicial : DbMigration
+    public partial class incial : DbMigration
     {
         public override void Up()
         {
