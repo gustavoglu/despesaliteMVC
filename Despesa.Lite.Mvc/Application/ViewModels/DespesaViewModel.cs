@@ -28,5 +28,8 @@ namespace Despesa.Lite.Mvc.Application.ViewModels
         public double Outros { get; set; }
 
         public string Detalhes { get; set; }
+
+        public ICollection<Despesa_ImagemViewModel> Despesa_Imagens{ get; set; }
+
     }
 }

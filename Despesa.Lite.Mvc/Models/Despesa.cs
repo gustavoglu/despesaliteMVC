@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Despesa.Lite.Mvc.Models
 {
@@ -20,5 +18,7 @@ namespace Despesa.Lite.Mvc.Models
         public string Detalhes { get; set; }
 
         public virtual Visita Visita { get; set; }
+
+        public virtual ICollection<Depesa_Imagem> Despesa_Imagens { get; set; }
     }
 }

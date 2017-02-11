@@ -22,6 +22,8 @@ namespace Despesa.Lite.Mvc.Models
             return userIdentity;
         }
 
+        public string Nome { get; set; }
+
         public bool Companhia { get; set; }
 
         public bool Ativo { get; set; }
@@ -52,6 +54,8 @@ namespace Despesa.Lite.Mvc.Models
         public DbSet<Despesa> Despesas { get; set; }
         public DbSet<Visita> Visitas { get; set; }
         public DbSet<Cliente_Usuarios> Cliente_Usuarios { get; set; }
+        public DbSet<Usuario_Solicitacao> Usuario_Solicitacoes { get; set; }
+        public DbSet<Depesa_Imagem> Despesa_Imagens { get; set; }
 
         public static ApplicationDbContext Create()
         {
@@ -68,7 +72,6 @@ namespace Despesa.Lite.Mvc.Models
 
             modelBuilder.Entity<ApplicationUser>()
             .ToTable("usuarios");
-
 
             modelBuilder.Entity<IdentityUserRole>()
             .ToTable("usuario_regras");
@@ -94,6 +97,7 @@ namespace Despesa.Lite.Mvc.Models
             modelBuilder.Configurations.Add(new VisitaConfig());
             modelBuilder.Configurations.Add(new Cliente_UsuariosConfig());
             modelBuilder.Configurations.Add(new Usuario_SolicitacaoConfig());
+            modelBuilder.Configurations.Add(new Despesa_ImagemConfig());
         }
 
     }
