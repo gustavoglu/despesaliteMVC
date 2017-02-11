@@ -44,6 +44,11 @@ namespace Despesa.Lite.Mvc.Application.Services
             return Mapper.Map<Despesa_ImagemViewModel>(_Despesa_ImagemRepository.Desativar(despesa_imagem));
         }
 
+        public void Dispose()
+        {
+            _Despesa_ImagemRepository.Dispose();
+        }
+
         public int Remover(Despesa_ImagemViewModel despesa_ImagemViewModel)
         {
             var despesa_imagem = Mapper.Map<Depesa_Imagem>(despesa_ImagemViewModel);

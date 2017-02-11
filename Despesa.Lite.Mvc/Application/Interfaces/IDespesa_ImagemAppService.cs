@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Despesa.Lite.Mvc.Application.Interfaces
 {
-    public interface IDespesa_ImagemAppService
+    public interface IDespesa_ImagemAppService : IDisposable
     {
         Despesa_ImagemViewModel Criar(Despesa_ImagemViewModel despesa_ImagemViewModel);
 

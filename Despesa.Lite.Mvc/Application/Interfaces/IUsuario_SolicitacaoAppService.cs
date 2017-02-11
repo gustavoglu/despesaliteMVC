@@ -22,5 +22,9 @@ namespace Despesa.Lite.Mvc.Application.Interfaces
 
         int Remover(Usuario_SolicitacaoViewModel usuario_SolicitacaoViewModel);
 
+        void Aceitar(Usuario_SolicitacaoViewModel usuario_SolicitacaoViewModel);
+
+        void Recusar(Usuario_SolicitacaoViewModel usuario_SolicitacaoViewModel);
+
     }
 }

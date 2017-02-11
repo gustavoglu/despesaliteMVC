@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Despesa.Lite.Mvc.Models.Interfaces.Repository
 {
-    public interface IUsuario_Solicitacao : IRepository<Usuario_Solicitacao>
+    public interface IUsuario_SolicitacaoRepository : IRepository<Usuario_Solicitacao>
     {
 
         void Aceitar(Usuario_Solicitacao usuario_Solicitacao);

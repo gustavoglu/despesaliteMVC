@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 
 namespace Despesa.Lite.Mvc.Models.Repository
 {
-    public class Usuario_SolicitacaoRepository : Repository<Usuario_Solicitacao>, IUsuario_Solicitacao
+    public class Usuario_SolicitacaoRepository : Repository<Usuario_Solicitacao>, IUsuario_SolicitacaoRepository
     {
         protected ApplicationUser usuarioSolicitante;
 

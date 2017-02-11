@@ -242,6 +242,8 @@
     <Compile Include="Controllers\API\ClientesController.cs" />
     <Compile Include="Controllers\API\Cliente_UsuariosController.cs" />
     <Compile Include="Controllers\API\DespesasController.cs" />
+    <Compile Include="Controllers\API\Despesa_ImagensController.cs" />
+    <Compile Include="Controllers\API\Usuario_SolicitacoesController.cs" />
     <Compile Include="Controllers\API\VisitasController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -253,6 +255,10 @@
     <Compile Include="Migrations\201702102255448_inicial.cs" />
     <Compile Include="Migrations\201702102255448_inicial.Designer.cs">
       <DependentUpon>201702102255448_inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702111643527_dois.cs" />
+    <Compile Include="Migrations\201702111643527_dois.Designer.cs">
+      <DependentUpon>201702111643527_dois.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -364,6 +370,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702102255448_inicial.resx">
       <DependentUpon>201702102255448_inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702111643527_dois.resx">
+      <DependentUpon>201702111643527_dois.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
