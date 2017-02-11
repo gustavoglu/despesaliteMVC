@@ -33,6 +33,11 @@ namespace Despesa.Lite.Mvc.Models
         public Guid id_conta_usuario { get; set; }
 
         public virtual ICollection<Cliente_Usuarios> Cliente_Usuarios { get; set; }
+
+        public virtual ICollection<Usuario_Solicitacao> Usuario_Solicitacoes { get; set; }
+
+        public virtual ICollection<Usuario_Solicitacao> Companhia_Solicitacoes { get; set; }
+
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -42,6 +47,7 @@ namespace Despesa.Lite.Mvc.Models
         {
 
         }
+
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Despesa> Despesas { get; set; }
         public DbSet<Visita> Visitas { get; set; }
@@ -59,13 +65,10 @@ namespace Despesa.Lite.Mvc.Models
 
             modelBuilder.Entity<IdentityUser>()
             .ToTable("usuarios");
-            //.Property(p => p.Id)
-            //.HasColumnName("Id");
 
             modelBuilder.Entity<ApplicationUser>()
             .ToTable("usuarios");
-            //.Property(p => p.Id)
-            //.HasColumnName("Id");
+
 
             modelBuilder.Entity<IdentityUserRole>()
             .ToTable("usuario_regras");
@@ -90,6 +93,7 @@ namespace Despesa.Lite.Mvc.Models
             modelBuilder.Configurations.Add(new DespesaConfig());
             modelBuilder.Configurations.Add(new VisitaConfig());
             modelBuilder.Configurations.Add(new Cliente_UsuariosConfig());
+            modelBuilder.Configurations.Add(new Usuario_SolicitacaoConfig());
         }
 
     }

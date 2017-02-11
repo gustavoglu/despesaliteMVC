@@ -13,7 +13,7 @@ namespace Despesa.Lite.Mvc.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201702101316272_inicial"; }
+            get { return "201702102255448_inicial"; }
         }
         
         string IMigrationMetadata.Source

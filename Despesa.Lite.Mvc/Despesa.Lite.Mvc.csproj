@@ -188,14 +188,17 @@
     <Compile Include="Application\Interfaces\IClienteAppService.cs" />
     <Compile Include="Application\Interfaces\ICliente_UsuariosAppService.cs" />
     <Compile Include="Application\Interfaces\IDespesaAppService.cs" />
+    <Compile Include="Application\Interfaces\IUsuario_SolicitacaoAppService.cs" />
     <Compile Include="Application\Interfaces\IVisitaAppService.cs" />
     <Compile Include="Application\Services\ClienteAppService.cs" />
     <Compile Include="Application\Services\Cliente_UsuariosAppService.cs" />
     <Compile Include="Application\Services\DespesaAppService.cs" />
+    <Compile Include="Application\Services\Usuario_SolicitacaoAppService.cs" />
     <Compile Include="Application\Services\VisitaAppService.cs" />
     <Compile Include="Application\ViewModels\ClienteViewModel.cs" />
     <Compile Include="Application\ViewModels\Cliente_UsuariosViewModel.cs" />
     <Compile Include="Application\ViewModels\DespesaViewModel.cs" />
+    <Compile Include="Application\ViewModels\Usuario_SolicitacaoViewModel.cs" />
     <Compile Include="Application\ViewModels\VisitaDespesaClienteViewModel.cs" />
     <Compile Include="Application\ViewModels\VisitaViewModel.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -244,9 +247,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201702101316272_inicial.cs" />
-    <Compile Include="Migrations\201702101316272_inicial.Designer.cs">
-      <DependentUpon>201702101316272_inicial.cs</DependentUpon>
+    <Compile Include="Migrations\201702102255448_inicial.cs" />
+    <Compile Include="Migrations\201702102255448_inicial.Designer.cs">
+      <DependentUpon>201702102255448_inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -258,18 +261,22 @@
     <Compile Include="Models\EntityConfig\ClienteConfig.cs" />
     <Compile Include="Models\EntityConfig\Cliente_UsuariosConfig.cs" />
     <Compile Include="Models\EntityConfig\DespesaConfig.cs" />
+    <Compile Include="Models\EntityConfig\Usuario_SolicitacaoConfig.cs" />
     <Compile Include="Models\EntityConfig\VisitaConfig.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Interfaces\Repository\IClienteRepository.cs" />
     <Compile Include="Models\Interfaces\Repository\ICliente_UsuariosRepository.cs" />
     <Compile Include="Models\Interfaces\Repository\IDespesaRepository.cs" />
     <Compile Include="Models\Interfaces\Repository\IRepository.cs" />
+    <Compile Include="Models\Interfaces\Repository\IUsuario_SolicitacaoRepository.cs" />
     <Compile Include="Models\Interfaces\Repository\IVisitaRepository.cs" />
     <Compile Include="Models\Repository\ClienteRepository.cs" />
     <Compile Include="Models\Repository\Cliente_UsuariosRepository.cs" />
     <Compile Include="Models\Repository\DespesaRepository.cs" />
     <Compile Include="Models\Repository\Repository.cs" />
+    <Compile Include="Models\Repository\Usuario_SolicitacaoRepository.cs" />
     <Compile Include="Models\Repository\VisitaRepository.cs" />
+    <Compile Include="Models\Usuario_Solicitacao.cs" />
     <Compile Include="Models\Visita.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -348,8 +355,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702101316272_inicial.resx">
-      <DependentUpon>201702101316272_inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201702102255448_inicial.resx">
+      <DependentUpon>201702102255448_inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

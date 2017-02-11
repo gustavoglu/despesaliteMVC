@@ -141,6 +141,33 @@ namespace Despesa.Lite.Mvc.Migrations
                 .Index(t => t.IdentityUser_Id);
             
             CreateTable(
+                "dbo.usuario_solicitacao",
+                c => new
+                    {
+                        Id = c.Guid(nullable: false),
+                        Descricao = c.String(maxLength: 100, unicode: false),
+                        id_usuario = c.String(nullable: false, maxLength: 100, unicode: false),
+                        id_companhia = c.String(nullable: false, maxLength: 100, unicode: false),
+                        DataResposta = c.DateTime(),
+                        Confirmado = c.Boolean(nullable: false),
+                        Status = c.Int(nullable: false),
+                        CriadoPor = c.String(maxLength: 100, unicode: false),
+                        DeletadoPor = c.String(maxLength: 100, unicode: false),
+                        AtualizadoPor = c.String(maxLength: 100, unicode: false),
+                        AtivadoPor = c.String(maxLength: 100, unicode: false),
+                        DesativadoPor = c.String(maxLength: 100, unicode: false),
+                        CriadoEm = c.DateTime(),
+                        DeletadoEm = c.DateTime(),
+                        Ativo = c.Boolean(),
+                        Deletado = c.Boolean(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.usuarios", t => t.id_companhia)
+                .ForeignKey("dbo.usuarios", t => t.id_usuario)
+                .Index(t => t.id_usuario)
+                .Index(t => t.id_companhia);
+            
+            CreateTable(
                 "dbo.logins",
                 c => new
                     {
@@ -186,6 +213,8 @@ namespace Despesa.Lite.Mvc.Migrations
             DropForeignKey("dbo.claims", "IdentityUser_Id", "dbo.usuarios");
             DropForeignKey("dbo.usuario_regras", "RoleId", "dbo.regras");
             DropForeignKey("dbo.cliente_usuarios", "id_usuario", "dbo.usuarios");
+            DropForeignKey("dbo.usuario_solicitacao", "id_usuario", "dbo.usuarios");
+            DropForeignKey("dbo.usuario_solicitacao", "id_companhia", "dbo.usuarios");
             DropForeignKey("dbo.cliente_usuarios", "id_cliente", "dbo.cliente");
             DropForeignKey("dbo.despesa", "id_visita", "dbo.visita");
             DropForeignKey("dbo.visita", "id_cliente", "dbo.cliente");
@@ -193,6 +222,8 @@ namespace Despesa.Lite.Mvc.Migrations
             DropIndex("dbo.usuario_regras", new[] { "IdentityUser_Id" });
             DropIndex("dbo.usuario_regras", new[] { "RoleId" });
             DropIndex("dbo.logins", new[] { "IdentityUser_Id" });
+            DropIndex("dbo.usuario_solicitacao", new[] { "id_companhia" });
+            DropIndex("dbo.usuario_solicitacao", new[] { "id_usuario" });
             DropIndex("dbo.claims", new[] { "IdentityUser_Id" });
             DropIndex("dbo.usuarios", "UserNameIndex");
             DropIndex("dbo.despesa", new[] { "id_visita" });
@@ -202,6 +233,7 @@ namespace Despesa.Lite.Mvc.Migrations
             DropTable("dbo.regras");
             DropTable("dbo.usuario_regras");
             DropTable("dbo.logins");
+            DropTable("dbo.usuario_solicitacao");
             DropTable("dbo.claims");
             DropTable("dbo.usuarios");
             DropTable("dbo.despesa");

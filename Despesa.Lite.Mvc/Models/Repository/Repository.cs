@@ -10,11 +10,11 @@ namespace Despesa.Lite.Mvc.Models.Repository
 {
     public abstract class Repository<T> : IRepository<T> where T : EntityBase, new()
     {
-        ApplicationDbContext db;
-        DbSet<T> dbSet;
-        DbSet<ApplicationUser> dbusuario;
-        ApplicationUser usuario;
-        string username;
+        protected ApplicationDbContext db;
+        protected DbSet<T> dbSet;
+        protected DbSet<ApplicationUser> dbusuario;
+        protected ApplicationUser usuario;
+        protected string username;
 
 
         protected Repository()
