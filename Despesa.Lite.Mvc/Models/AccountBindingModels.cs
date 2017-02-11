@@ -48,6 +48,14 @@ namespace Despesa.Lite.Mvc.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public bool Companhia{ get; set; }
+
+        [Required(ErrorMessage = "Campo Nome é necessário")]
+        public string Nome { get; set; }
+
+
+
     }
 
     public class RegisterExternalBindingModel

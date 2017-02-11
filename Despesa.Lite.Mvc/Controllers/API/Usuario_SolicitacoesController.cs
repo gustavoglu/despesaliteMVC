@@ -104,7 +104,7 @@ namespace Despesa.Lite.Mvc.Controllers.API
 
         private bool Usuario_SolicitacaoViewModelExists(Guid id)
         {
-            return db.Usuario_SolicitacaoViewModel.Count(e => e.Id == id) > 0;
+            return db.Usuario_Solicitacoes.Count(e => e.Id == id) > 0;
         }
     }
 }

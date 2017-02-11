@@ -99,9 +99,5 @@ namespace Despesa.Lite.Mvc.Models
             modelBuilder.Configurations.Add(new Usuario_SolicitacaoConfig());
             modelBuilder.Configurations.Add(new Despesa_ImagemConfig());
         }
-
-        public System.Data.Entity.DbSet<Despesa.Lite.Mvc.Application.ViewModels.Usuario_SolicitacaoViewModel> Usuario_SolicitacaoViewModel { get; set; }
-
-        public System.Data.Entity.DbSet<Despesa.Lite.Mvc.Application.ViewModels.Despesa_ImagemViewModel> Despesa_ImagemViewModel { get; set; }
     }
 }
