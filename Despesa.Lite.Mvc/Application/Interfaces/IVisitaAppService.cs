@@ -7,15 +7,15 @@ namespace Despesa.Lite.Mvc.Application.Interfaces
 {
     public interface IVisitaAppService : IDisposable 
     {
-        VisitaDespesaClienteViewModel Criar(VisitaDespesaClienteViewModel visitaDespesaClienteViewModel);
+        VisitaViewModel Criar(VisitaViewModel visitaViewModel);
 
-        VisitaDespesaClienteViewModel Atualizar(VisitaDespesaClienteViewModel visitaDespesaClienteViewModel);
+        VisitaViewModel Atualizar(VisitaViewModel visitaViewModel);
 
         VisitaViewModel TrazerPorId(Guid Id);
 
-        VisitaDespesaClienteViewModel Ativar(VisitaDespesaClienteViewModel visitaDespesaClienteViewModel);
+        VisitaViewModel Ativar(VisitaViewModel visitaViewModel);
 
-        VisitaDespesaClienteViewModel Desativar(VisitaDespesaClienteViewModel visitaDespesaClienteViewModel);
+        VisitaViewModel Desativar(VisitaViewModel visitaViewModel);
 
         IEnumerable<VisitaViewModel> TrazerTodos();
 
@@ -25,6 +25,6 @@ namespace Despesa.Lite.Mvc.Application.Interfaces
 
         IEnumerable<VisitaViewModel> TrazerTodosDeletados();
 
-        int Remover(VisitaDespesaClienteViewModel visitaDespesaClienteViewModel);
+        int Remover(VisitaViewModel visitaViewModel);
     }
 }

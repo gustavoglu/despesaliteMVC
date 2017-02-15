@@ -21,54 +21,43 @@ namespace Despesa.Lite.Mvc.Application.Services
             _despesarepository = new DespesaRepository();
         }
 
-        public VisitaDespesaClienteViewModel Ativar(VisitaDespesaClienteViewModel visitaDespesaClienteViewModel)
+        public VisitaViewModel Ativar(VisitaViewModel visitaViewModel)
         {
-            var visita = Mapper.Map<Visita>(visitaDespesaClienteViewModel.Visita);
-            var despesa = Mapper.Map<IEnumerable<Despesa.Lite.Mvc.Models.Despesa>>(visitaDespesaClienteViewModel.Despesas);
-            var cliente = Mapper.Map<Cliente>(visitaDespesaClienteViewModel.Cliente);
+            var visita = Mapper.Map<Visita>(visitaViewModel);
+            var despesa = Mapper.Map<IEnumerable<Despesa.Lite.Mvc.Models.Despesa>>(visitaViewModel.Despesas);
 
             _visitarepository.Ativar(visita);
+
             foreach (var item in despesa)
             {
                 _despesarepository.Ativar(item);
             }
 
-            return visitaDespesaClienteViewModel;
+            return visitaViewModel;
         }
 
-        public VisitaDespesaClienteViewModel Atualizar(VisitaDespesaClienteViewModel visitaDespesaClienteViewModel)
+        public VisitaViewModel Atualizar(VisitaViewModel visitaViewModel)
         {
-            var visita = Mapper.Map<Visita>(visitaDespesaClienteViewModel.Visita);
-            var despesa = Mapper.Map<IEnumerable<Despesa.Lite.Mvc.Models.Despesa>>(visitaDespesaClienteViewModel.Despesas);
-            var cliente = Mapper.Map<Cliente>(visitaDespesaClienteViewModel.Cliente);
-
-            visita.Despesas = despesa.ToList();
-            visita.Cliente = cliente;
+            var visita = Mapper.Map<Visita>(visitaViewModel);
 
             _visitarepository.Atualizar(visita);
 
-            return visitaDespesaClienteViewModel;
+            return visitaViewModel;
         }
 
-        public VisitaDespesaClienteViewModel Criar(VisitaDespesaClienteViewModel visitaDespesaClienteViewModel)
+        public VisitaViewModel Criar(VisitaViewModel visitaViewModel)
         {
-            var visita = Mapper.Map<Visita>(visitaDespesaClienteViewModel.Visita);
-            var despesa = Mapper.Map<IEnumerable<Despesa.Lite.Mvc.Models.Despesa>>(visitaDespesaClienteViewModel.Despesas);
-            var cliente = Mapper.Map<Cliente>(visitaDespesaClienteViewModel.Cliente);
-
-            visita.Despesas = despesa.ToList();
-            visita.Cliente = cliente;
-
+            var visita = Mapper.Map<Visita>(visitaViewModel);
+          
             _visitarepository.Criar(visita);
 
-            return visitaDespesaClienteViewModel;
+            return visitaViewModel;
         }
 
-        public VisitaDespesaClienteViewModel Desativar(VisitaDespesaClienteViewModel visitaDespesaClienteViewModel)
+        public VisitaViewModel Desativar(VisitaViewModel visitaViewModel)
         {
-            var visita = Mapper.Map<Visita>(visitaDespesaClienteViewModel.Visita);
-            var despesa = Mapper.Map<IEnumerable<Despesa.Lite.Mvc.Models.Despesa>>(visitaDespesaClienteViewModel.Despesas);
-            var cliente = Mapper.Map<Cliente>(visitaDespesaClienteViewModel.Cliente);
+            var visita = Mapper.Map<Visita>(visitaViewModel);
+            var despesa = Mapper.Map<IEnumerable<Despesa.Lite.Mvc.Models.Despesa>>(visitaViewModel.Despesas);
 
             _visitarepository.Desativar(visita);
             foreach (var item in despesa)
@@ -76,7 +65,7 @@ namespace Despesa.Lite.Mvc.Application.Services
                 _despesarepository.Desativar(item);
             }
 
-            return visitaDespesaClienteViewModel;
+            return visitaViewModel;
         }
 
         public void Dispose()
@@ -85,23 +74,17 @@ namespace Despesa.Lite.Mvc.Application.Services
             _despesarepository.Dispose();
         }
 
-        public int Remover(VisitaDespesaClienteViewModel visitaDespesaClienteViewModel)
+        public int Remover(VisitaViewModel visitaViewModel)
         {
-            var visita = Mapper.Map<Visita>(visitaDespesaClienteViewModel.Visita);
-            var despesa = Mapper.Map<IEnumerable<Despesa.Lite.Mvc.Models.Despesa>>(visitaDespesaClienteViewModel.Despesas);
-            var cliente = Mapper.Map<Cliente>(visitaDespesaClienteViewModel.Cliente);
-
-            visita.Despesas = despesa.ToList();
-            visita.Cliente = cliente;
-
+            var visita = Mapper.Map<Visita>(visitaViewModel);
+            var despesa = Mapper.Map<IEnumerable<Despesa.Lite.Mvc.Models.Despesa>>(visitaViewModel.Despesas);
+           
             foreach (var item in despesa)
             {
                 _despesarepository.Remover(item);
             }
 
             return _visitarepository.Remover(visita);
-
-
         }
 
         public VisitaViewModel TrazerPorId(Guid Id)

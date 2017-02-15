@@ -41,35 +41,35 @@ namespace Despesa.Lite.Mvc.Controllers.API
 
         // PUT: api/VisitaViewModels/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutVisitaViewModel(Guid id, VisitaDespesaClienteViewModel visitaDespesaClienteViewModel)
+        public IHttpActionResult PutVisitaViewModel(Guid id, VisitaViewModel visitaViewModel)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != visitaDespesaClienteViewModel.Visita.Id)
+            if (id != visitaViewModel.Id)
             {
                 return BadRequest();
             }
 
-            _VisitaAppService.Atualizar(visitaDespesaClienteViewModel);
+            _VisitaAppService.Atualizar(visitaViewModel);
 
             return StatusCode(HttpStatusCode.NoContent);
         }
 
         // POST: api/VisitaViewModels
         [ResponseType(typeof(VisitaViewModel))]
-        public IHttpActionResult PostVisitaViewModel(VisitaDespesaClienteViewModel visitaDespesaClienteViewModel)
+        public IHttpActionResult PostVisitaViewModel(VisitaViewModel visitaViewModel)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _VisitaAppService.Criar(visitaDespesaClienteViewModel);
+            _VisitaAppService.Criar(visitaViewModel);
 
-            return CreatedAtRoute("DefaultApi", new { id = visitaDespesaClienteViewModel.Visita.Id }, visitaDespesaClienteViewModel);
+            return CreatedAtRoute("DefaultApi", new { id = visitaViewModel.Id }, visitaViewModel);
         }
 
         // DELETE: api/VisitaViewModels/5
@@ -77,22 +77,16 @@ namespace Despesa.Lite.Mvc.Controllers.API
         public IHttpActionResult DeleteVisitaViewModel(Guid id)
         {
             VisitaViewModel visita = _VisitaAppService.TrazerPorId(id);
-            VisitaDespesaClienteViewModel visitaDespesaClienteViewModel = new VisitaDespesaClienteViewModel()
-            {
-                Visita = visita,
-                Cliente = visita.Cliente,
-                Despesas = visita.Despesas
-                
-            };
 
-            if (visitaDespesaClienteViewModel == null)
+
+            if (visita == null)
             {
                 return NotFound();
             }
 
-            _VisitaAppService.Remover(visitaDespesaClienteViewModel);
+            _VisitaAppService.Remover(visita);
 
-            return Ok(visitaDespesaClienteViewModel);
+            return Ok(visita);
         }
 
         protected override void Dispose(bool disposing)
