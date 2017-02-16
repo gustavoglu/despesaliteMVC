@@ -11,9 +11,7 @@ namespace Despesa.Lite.Mvc.Models
         {
             Despesas = new List<Despesa>(); 
         }
-        public Guid id_despesa { get; set; }
-
-        public Guid id_cliente { get; set; }
+        public Guid? id_cliente { get; set; }
 
         public DateTime Data { get; set; }
 

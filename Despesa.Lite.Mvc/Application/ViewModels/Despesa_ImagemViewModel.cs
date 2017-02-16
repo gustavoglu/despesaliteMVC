@@ -24,7 +24,9 @@ namespace Despesa.Lite.Mvc.Application.ViewModels
         [MaxLength(1000,ErrorMessage = "")]
         public string imagem_link { get; set; } = "";
 
-        [Required(ErrorMessage = "")]
-        public virtual DespesaViewModel Despesa { get; set; }
+        public Guid? id_despesa { get; set; }
+
+        // [Required(ErrorMessage = "")]
+        // public virtual DespesaViewModel Despesa { get; set; }
     }
 }

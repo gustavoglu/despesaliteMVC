@@ -197,6 +197,7 @@
     <Compile Include="Application\Services\Despesa_ImagemAppService.cs" />
     <Compile Include="Application\Services\Usuario_SolicitacaoAppService.cs" />
     <Compile Include="Application\Services\VisitaAppService.cs" />
+    <Compile Include="Application\Services\VisitaClienteDespesasViewModel.cs" />
     <Compile Include="Application\ViewModels\ClienteViewModel.cs" />
     <Compile Include="Application\ViewModels\Cliente_UsuariosViewModel.cs" />
     <Compile Include="Application\ViewModels\DespesaViewModel.cs" />
@@ -259,6 +260,14 @@
     <Compile Include="Migrations\201702111643527_dois.cs" />
     <Compile Include="Migrations\201702111643527_dois.Designer.cs">
       <DependentUpon>201702111643527_dois.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702151403497_correcaoiddespesaVisita.cs" />
+    <Compile Include="Migrations\201702151403497_correcaoiddespesaVisita.Designer.cs">
+      <DependentUpon>201702151403497_correcaoiddespesaVisita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702151525077_idsnulos.cs" />
+    <Compile Include="Migrations\201702151525077_idsnulos.Designer.cs">
+      <DependentUpon>201702151525077_idsnulos.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -374,6 +383,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702111643527_dois.resx">
       <DependentUpon>201702111643527_dois.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702151403497_correcaoiddespesaVisita.resx">
+      <DependentUpon>201702151403497_correcaoiddespesaVisita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702151525077_idsnulos.resx">
+      <DependentUpon>201702151525077_idsnulos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

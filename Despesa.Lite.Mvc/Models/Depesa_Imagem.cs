@@ -7,7 +7,7 @@ namespace Despesa.Lite.Mvc.Models
 {
     public class Depesa_Imagem : EntityBase
     {
-        public Guid id_despesa { get; set; }
+        public Guid? id_despesa { get; set; }
 
         public string Descricao { get; set; } = "";
 

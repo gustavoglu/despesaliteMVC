@@ -14,7 +14,9 @@ namespace Despesa.Lite.Mvc.Application.ViewModels
         [Key]
         public Guid Id { get; set; }
 
-        [Required(ErrorMessage ="")]
+        public Guid Id_cliente { get; set; }
+
+        [Required(ErrorMessage ="Necessário informar a Data")]
         public DateTime Data { get; set; }
 
         public TimeSpan HoraChegada { get; set; }
@@ -26,8 +28,6 @@ namespace Despesa.Lite.Mvc.Application.ViewModels
         public string Observações { get; set; }
 
         public ICollection<DespesaViewModel> Despesas { get; set; }
-
-        public ClienteViewModel Cliente { get; set; }
 
     }
 }

@@ -14,11 +14,14 @@ namespace Despesa.Lite.Mvc.Application.Services
     {
         protected readonly IVisitaRepository _visitarepository;
         protected readonly IDespesaRepository _despesarepository;
+        protected readonly IClienteRepository _clientepository;
 
         public VisitaAppService()
         {
             _visitarepository = new VisitaRepository();
             _despesarepository = new DespesaRepository();
+            _clientepository = new ClienteRepository();
+
         }
 
         public VisitaViewModel Ativar(VisitaViewModel visitaViewModel)
@@ -48,8 +51,13 @@ namespace Despesa.Lite.Mvc.Application.Services
         public VisitaViewModel Criar(VisitaViewModel visitaViewModel)
         {
             var visita = Mapper.Map<Visita>(visitaViewModel);
-          
-            _visitarepository.Criar(visita);
+            var cliente = _clientepository.TrazerPorId(visitaViewModel.Id_cliente);
+
+            var visitacriada = _visitarepository.Criar(visita);
+
+            cliente.Visitas.Add(visitacriada);
+
+            _clientepository.Atualizar(cliente);
 
             return visitaViewModel;
         }
@@ -78,7 +86,7 @@ namespace Despesa.Lite.Mvc.Application.Services
         {
             var visita = Mapper.Map<Visita>(visitaViewModel);
             var despesa = Mapper.Map<IEnumerable<Despesa.Lite.Mvc.Models.Despesa>>(visitaViewModel.Despesas);
-           
+
             foreach (var item in despesa)
             {
                 _despesarepository.Remover(item);

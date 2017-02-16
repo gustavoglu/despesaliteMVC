@@ -27,11 +27,16 @@ namespace Despesa.Lite.Mvc.Application.ViewModels
 
         public int Status { get; set; }
 
-        [Required(ErrorMessage ="")]
-        public ApplicationUser Usuario { get; set; }
+        public string id_usuario { get; set; } = null;
 
-        [Required(ErrorMessage = "")]
-        public ApplicationUser Companhia { get; set; }
+        public string id_companhia { get; set; } = null;
+
+        //
+        // [Required(ErrorMessage ="")]
+        // public ApplicationUser Usuario { get; set; }
+        //
+        // [Required(ErrorMessage = "")]
+        // public ApplicationUser Companhia { get; set; }
 
     }
 }

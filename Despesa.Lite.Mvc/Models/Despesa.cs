@@ -5,7 +5,7 @@ namespace Despesa.Lite.Mvc.Models
 {
     public class Despesa : EntityBase
     {
-        public Guid id_visita { get; set; }
+        public Guid? id_visita { get; set; }
 
         public int Quilometragem { get; set; }
 

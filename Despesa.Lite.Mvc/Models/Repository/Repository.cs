@@ -68,7 +68,7 @@ namespace Despesa.Lite.Mvc.Models.Repository
 
             Salvar();
 
-            return obj;
+            return objs;
         }
 
         public virtual T Desativar(T obj)

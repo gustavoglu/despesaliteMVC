@@ -16,8 +16,7 @@ namespace Despesa.Lite.Mvc.Application.ViewModels
         [Key]
         public Guid Id { get; set; }
 
-        [Required(ErrorMessage ="")]
-        public virtual VisitaViewModel Visita { get; set; }
+        public Guid? id_visita{ get; set; }
 
         public int Quilometragem { get; set; }
 

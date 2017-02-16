@@ -15,10 +15,13 @@ namespace Despesa.Lite.Mvc.Application.ViewModels
         [Key]
         public Guid Id  { get; set; }
 
-        [Required(ErrorMessage ="")]
-        public virtual ApplicationUser Usuario{ get; set; }
+        public Guid? id_cliente{ get; set; }
 
-        [Required(ErrorMessage = "")]
-        public virtual Cliente Cliente { get; set; }
+        public string id_usuario { get; set; } = null;
+        //[Required(ErrorMessage ="")]
+        //public virtual ApplicationUser Usuario{ get; set; }
+        //
+        //[Required(ErrorMessage = "")]
+        //public virtual Cliente Cliente { get; set; }
     }
 }
