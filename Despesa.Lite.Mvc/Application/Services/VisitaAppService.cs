@@ -7,6 +7,7 @@ using Despesa.Lite.Mvc.Models.Repository;
 using Despesa.Lite.Mvc.Models.Interfaces.Repository;
 using Despesa.Lite.Mvc.Application.ViewModels;
 using Despesa.Lite.Mvc.Models;
+using Newtonsoft.Json;
 
 namespace Despesa.Lite.Mvc.Application.Services
 {
@@ -54,10 +55,6 @@ namespace Despesa.Lite.Mvc.Application.Services
             var cliente = _clientepository.TrazerPorId(visitaViewModel.Id_cliente);
 
             var visitacriada = _visitarepository.Criar(visita);
-
-            cliente.Visitas.Add(visitacriada);
-
-            _clientepository.Atualizar(cliente);
 
             return visitaViewModel;
         }

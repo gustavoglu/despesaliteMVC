@@ -12,7 +12,6 @@ namespace Despesa.Lite.Mvc.Models.Repository
      
         ApplicationDbContext db;
 
-
         public override Cliente TrazerPorId(Guid Id)
         {
             db = new ApplicationDbContext();
