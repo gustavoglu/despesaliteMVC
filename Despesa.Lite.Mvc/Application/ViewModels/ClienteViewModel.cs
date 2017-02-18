@@ -25,8 +25,8 @@ namespace Despesa.Lite.Mvc.Application.ViewModels
         [MaxLength(100, ErrorMessage = "")]
         public string RazaoSocial { get; set; }
 
-        [ScaffoldColumn(false)]
-        public DateTime CriadoEm { get; set; }
+        //[ScaffoldColumn(false)]
+        //public DateTime CriadoEm { get; set; }
 
         [ScaffoldColumn(false)]
         public bool Ativo { get; set; }

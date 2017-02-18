@@ -189,12 +189,14 @@
     <Compile Include="Application\Interfaces\ICliente_UsuariosAppService.cs" />
     <Compile Include="Application\Interfaces\IDespesaAppService.cs" />
     <Compile Include="Application\Interfaces\IDespesa_ImagemAppService.cs" />
+    <Compile Include="Application\Interfaces\IUsuarioAppService.cs" />
     <Compile Include="Application\Interfaces\IUsuario_SolicitacaoAppService.cs" />
     <Compile Include="Application\Interfaces\IVisitaAppService.cs" />
     <Compile Include="Application\Services\ClienteAppService.cs" />
     <Compile Include="Application\Services\Cliente_UsuariosAppService.cs" />
     <Compile Include="Application\Services\DespesaAppService.cs" />
     <Compile Include="Application\Services\Despesa_ImagemAppService.cs" />
+    <Compile Include="Application\Services\UsuarioAppService.cs" />
     <Compile Include="Application\Services\Usuario_SolicitacaoAppService.cs" />
     <Compile Include="Application\Services\VisitaAppService.cs" />
     <Compile Include="Application\Services\VisitaClienteDespesasViewModel.cs" />
@@ -202,6 +204,7 @@
     <Compile Include="Application\ViewModels\Cliente_UsuariosViewModel.cs" />
     <Compile Include="Application\ViewModels\DespesaViewModel.cs" />
     <Compile Include="Application\ViewModels\Despesa_ImagemViewModel.cs" />
+    <Compile Include="Application\ViewModels\UsuarioViewModel.cs" />
     <Compile Include="Application\ViewModels\Usuario_SolicitacaoViewModel.cs" />
     <Compile Include="Application\ViewModels\VisitaDespesaClienteViewModel.cs" />
     <Compile Include="Application\ViewModels\VisitaViewModel.cs" />
@@ -244,6 +247,7 @@
     <Compile Include="Controllers\API\Cliente_UsuariosController.cs" />
     <Compile Include="Controllers\API\DespesasController.cs" />
     <Compile Include="Controllers\API\Despesa_ImagensController.cs" />
+    <Compile Include="Controllers\API\UsuariosController.cs" />
     <Compile Include="Controllers\API\Usuario_SolicitacoesController.cs" />
     <Compile Include="Controllers\API\VisitasController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
