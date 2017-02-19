@@ -27,5 +27,7 @@ namespace Despesa.Lite.Mvc.Application.Interfaces
 
         int Remover(ClienteViewModel clienteViewModel);
 
+        //ClienteViewModel AdicionarClientesAoUsuario(ClienteViewModel clienteViewModel);
+
     }
 }

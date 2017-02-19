@@ -1,11 +1,8 @@
 ﻿using Despesa.Lite.Mvc.Application.Interfaces;
 using Despesa.Lite.Mvc.Application.Services;
 using Despesa.Lite.Mvc.Application.ViewModels;
-using Despesa.Lite.Mvc.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace Despesa.Lite.Mvc.Controllers.API

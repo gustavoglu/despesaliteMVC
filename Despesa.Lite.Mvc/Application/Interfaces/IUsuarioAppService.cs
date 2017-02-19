@@ -6,8 +6,10 @@ using System.Web;
 
 namespace Despesa.Lite.Mvc.Application.Interfaces
 {
-    public interface IUsuarioAppService
+    public interface IUsuarioAppService : IDisposable
     {
         IEnumerable<UsuarioViewModel> TrazerUsuariosDaCompanhia();
+
+        //UsuarioViewModel AdicionarClientesAoUsuario(string IdUsuario, Guid IdCliente);
     }
 }
