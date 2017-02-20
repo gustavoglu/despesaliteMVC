@@ -8,6 +8,8 @@ using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Despesa.Lite.Mvc.Models.EntityConfig;
+using System.Linq;
+using System.Web;
 
 namespace Despesa.Lite.Mvc.Models
 {
@@ -60,6 +62,27 @@ namespace Despesa.Lite.Mvc.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        public override int SaveChanges()
+        {
+            foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("CriadoEm") != null))
+            {
+                if (entry.State == EntityState.Added)
+                {
+                    entry.Property("CraidoEm").CurrentValue = DateTime.Now;
+                    entry.Property("CriadoPor").CurrentValue = HttpContext.Current.User.Identity.Name;
+                }
+
+                if (entry.State == EntityState.Modified)
+                {
+                    entry.Property("AtualizadoPor").CurrentValue = HttpContext.Current.User.Identity.Name;
+                    entry.Property("CriadoEm").IsModified = false;
+                    entry.Property("CriadoPor").IsModified = false;
+                }
+            }
+
+            return base.SaveChanges();  
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
