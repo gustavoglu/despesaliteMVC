@@ -12,6 +12,8 @@ namespace Despesa.Lite.Mvc.Application.Interfaces
     {
         Cliente_UsuariosViewModel Criar(Cliente_UsuariosViewModel cliente_UsuariosViewModel);
 
+        IEnumerable <Cliente_UsuariosViewModel> Criar(IEnumerable<Cliente_UsuariosViewModel> lista_cliente_UsuariosViewModel);
+
         Cliente_UsuariosViewModel Atualizar(Cliente_UsuariosViewModel cliente_UsuariosViewModel);
 
         Cliente_UsuariosViewModel TrazerPorId(Guid Id);

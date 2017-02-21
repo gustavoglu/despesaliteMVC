@@ -31,6 +31,22 @@ namespace Despesa.Lite.Mvc.Controllers.API
             return _Cliente_UsuariosAppService.TrazerTodosAtivos().AsQueryable();
         }
 
+        //public IQueryable<Cliente_UsuariosViewModel> PesquisarLista(IEnumerable<Cliente_UsuariosViewModel> lista_cliente_UsuariosAppService)
+        //{
+        //    List<Cliente_UsuariosViewModel> retorno = new List<Cliente_UsuariosViewModel>();
+        //    foreach (var item in lista_cliente_UsuariosAppService)
+        //    {
+        //       bool exists = _Cliente_UsuariosAppService.TrazerTodosAtivos().ToList().Exists(c => c.Id == item.Id);
+
+        //        if (exists)
+        //        {
+        //            retorno.Add(_Cliente_UsuariosAppService.TrazerTodosAtivos().ToList().SingleOrDefault(c => c.Id == item.Id));
+        //        }
+        //    }
+
+            
+        //}
+
         // GET: api/Cliente_UsuariosViewModel/5
         [ResponseType(typeof(Cliente_UsuariosViewModel))]
         public IHttpActionResult GetCliente_UsuariosViewModel(Guid id)
@@ -77,6 +93,14 @@ namespace Despesa.Lite.Mvc.Controllers.API
             return CreatedAtRoute("DefaultApi", new { id = cliente_UsuariosViewModel.Id }, cliente_UsuariosViewModel);
         }
 
+
+        [HttpPost]
+        [Route("api/Cliente_UsuariosLista")]
+        public IQueryable PostListaCliente_Usuarios(IEnumerable<Cliente_UsuariosViewModel> lista_cliente_usuarios)
+        {
+            return _Cliente_UsuariosAppService.Criar(lista_cliente_usuarios).AsQueryable();
+        }
+
         // DELETE: api/Cliente_UsuariosViewModel/5
         [ResponseType(typeof(Cliente_UsuariosViewModel))]
         public IHttpActionResult DeleteCliente_UsuariosViewModel(Guid id)
@@ -89,6 +113,25 @@ namespace Despesa.Lite.Mvc.Controllers.API
 
             _Cliente_UsuariosAppService.Remover(cliente_UsuariosViewModel);
             return Ok(cliente_UsuariosViewModel);
+        }
+
+        [HttpPost]
+        [Route("api/Cliente_UsuariosListaDelete")]
+        public IHttpActionResult DeleteCliente_UsuariosViewModel(IEnumerable<Cliente_UsuariosViewModel> cliente_UsuariosParaDeletar)
+        {
+            foreach (var cliente_Usuarios in cliente_UsuariosParaDeletar)
+            {
+                Cliente_UsuariosViewModel cliente_UsuariosViewModel = _Cliente_UsuariosAppService.TrazerPorId(cliente_Usuarios.Id);
+                _Cliente_UsuariosAppService.Remover(cliente_UsuariosViewModel);
+            }
+            //Cliente_UsuariosViewModel cliente_UsuariosViewModel = _Cliente_UsuariosAppService.TrazerPorId(id);
+            //if (cliente_UsuariosViewModel == null)
+            //{
+            //    return NotFound();
+            //}
+
+            
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)

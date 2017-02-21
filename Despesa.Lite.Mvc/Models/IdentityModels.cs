@@ -66,21 +66,21 @@ namespace Despesa.Lite.Mvc.Models
 
         public override int SaveChanges()
         {
-            foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("CriadoEm") != null))
-            {
-                if (entry.State == EntityState.Added)
-                {
-                    entry.Property("CraidoEm").CurrentValue = DateTime.Now;
-                    entry.Property("CriadoPor").CurrentValue = HttpContext.Current.User.Identity.Name;
-                }
-
-                if (entry.State == EntityState.Modified)
-                {
-                    entry.Property("AtualizadoPor").CurrentValue = HttpContext.Current.User.Identity.Name;
-                    entry.Property("CriadoEm").IsModified = false;
-                    entry.Property("CriadoPor").IsModified = false;
-                }
-            }
+            //foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("CriadoEm") != null))
+            //{
+            //    if (entry.State == EntityState.Added)
+            //    {
+            //        entry.Property("CraidoEm").CurrentValue = DateTime.Now;
+            //        entry.Property("CriadoPor").CurrentValue = HttpContext.Current.User.Identity.Name;
+            //    }
+            //
+            //    if (entry.State == EntityState.Modified)
+            //    {
+            //        entry.Property("AtualizadoPor").CurrentValue = HttpContext.Current.User.Identity.Name;
+            //        entry.Property("CriadoEm").IsModified = false;
+            //        entry.Property("CriadoPor").IsModified = false;
+            //    }
+            //}
 
             return base.SaveChanges();  
         }

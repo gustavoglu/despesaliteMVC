@@ -116,5 +116,15 @@ namespace Despesa.Lite.Mvc.Application.Services
         {
             return Mapper.Map<IEnumerable<VisitaViewModel>>(_visitarepository.TrazerTodosInativos());
         }
+
+        public IEnumerable<VisitaViewModel> Criar(IEnumerable<VisitaViewModel> lista_visitaViewModel)
+        {
+            foreach (var visita in lista_visitaViewModel.ToList())
+            {
+                _visitarepository.Criar(Mapper.Map<Visita>(visita));
+            }
+
+            return lista_visitaViewModel.ToList();
+        }
     }
 }

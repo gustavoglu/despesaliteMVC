@@ -7,6 +7,8 @@ using Despesa.Lite.Mvc.Application.ViewModels;
 using Despesa.Lite.Mvc.Models;
 using Despesa.Lite.Mvc.Application.Interfaces;
 using Despesa.Lite.Mvc.Application.Services;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Despesa.Lite.Mvc.Controllers.API
 {
@@ -70,6 +72,21 @@ namespace Despesa.Lite.Mvc.Controllers.API
             _VisitaAppService.Criar(visitaViewModel);
 
             return CreatedAtRoute("DefaultApi", new { id = visitaViewModel.Id }, visitaViewModel);
+        }
+
+        // POST: api/VisitaViewModels
+        [Route("api/VisitasLista")]
+        [ResponseType(typeof(VisitaViewModel))]
+        public IQueryable PostVisitaViewModel(IEnumerable<VisitaViewModel> listavisitaViewModel)
+        {
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
+
+            return _VisitaAppService.Criar(listavisitaViewModel).AsQueryable();
+
+           // return CreatedAtRoute("DefaultApi", new { id = visitaViewModel.Id }, visitaViewModel);
         }
 
         // DELETE: api/VisitaViewModels/5

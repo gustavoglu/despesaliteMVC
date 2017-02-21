@@ -10,6 +10,8 @@ namespace Despesa.Lite.Mvc.Application.Interfaces
     {
         VisitaViewModel Criar(VisitaViewModel visitaViewModel);
 
+        IEnumerable<VisitaViewModel> Criar(IEnumerable<VisitaViewModel> lista_visitaViewModel);
+
         VisitaViewModel Atualizar(VisitaViewModel visitaViewModel);
 
         VisitaViewModel TrazerPorId(Guid Id);

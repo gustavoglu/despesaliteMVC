@@ -10,5 +10,6 @@ namespace Despesa.Lite.Mvc.Models.Repository
 {
     public class Cliente_UsuariosRepository : Repository<Cliente_Usuarios>, ICliente_UsuariosRepository
     {
+        
     }
 }
