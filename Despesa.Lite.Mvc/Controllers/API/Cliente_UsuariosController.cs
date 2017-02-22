@@ -134,6 +134,13 @@ namespace Despesa.Lite.Mvc.Controllers.API
             return Ok();
         }
 
+        [HttpGet]
+        [Route("api/Cliente_Usuarios/TrazerClientesDoUsuario")]
+        public IQueryable TrazerClientesDoUsuario(string Id)
+        {
+            return _Cliente_UsuariosAppService.TrazerClientesAtivosDoUsuarioPorId(Id).AsQueryable();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

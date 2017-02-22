@@ -8,6 +8,7 @@ using Despesa.Lite.Mvc.Application.ViewModels;
 using Despesa.Lite.Mvc.Models;
 using System.Linq;
 using System.Data.Entity;
+using System.Web;
 
 namespace Despesa.Lite.Mvc.Application.Services
 {
@@ -84,6 +85,14 @@ namespace Despesa.Lite.Mvc.Application.Services
         {
             return _cliente_UsuariosRepository.Remover(Mapper.Map<Cliente_Usuarios>(cliente_UsuariosViewModel));
         }
+
+        public IEnumerable<Cliente_UsuariosViewModel> TrazerClientesAtivosDoUsuarioPorId(string id)
+        {
+            var username = HttpContext.Current.User.Identity.Name;
+            var lista = DbSet.Where(u => u.CriadoPor == username && u.id_usuario == id && u.Ativo == true).ToList();
+            return Mapper.Map<IEnumerable<Cliente_UsuariosViewModel>>(lista);
+        }
+
 
         public Cliente_UsuariosViewModel TrazerPorId(Guid Id)
         {

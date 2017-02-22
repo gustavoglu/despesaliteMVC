@@ -9,7 +9,7 @@ namespace Despesa.Lite.Mvc.Application.ViewModels
     public class UsuarioViewModel
     {
         [Key]
-        string Id { get; set; }
+        public string Id { get; set; }
 
         public string Nome { get; set; }
 

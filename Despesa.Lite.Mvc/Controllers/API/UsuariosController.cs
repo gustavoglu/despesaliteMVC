@@ -10,17 +10,24 @@ namespace Despesa.Lite.Mvc.Controllers.API
     [RoutePrefix("api/Usuarios")]
     public class UsuariosController : ApiController
     {
-        private readonly IUsuarioAppService usuarioAppService;
+        private readonly IUsuarioAppService _usuarioAppService;
 
         public UsuariosController()
         {
-            usuarioAppService = new UsuarioAppService();
+            _usuarioAppService = new UsuarioAppService();
         }
 
         [HttpGet]
         public IEnumerable<UsuarioViewModel> MeusUsuarios()
         {
-            return usuarioAppService.TrazerUsuariosDaCompanhia().ToList();            
+            return _usuarioAppService.TrazerUsuariosDaCompanhia().ToList();
+        }
+
+        [HttpGet]
+        [Route("api/Usuarios/Companhias")]
+        public IEnumerable<UsuarioViewModel> Companhias()
+        {
+            return _usuarioAppService.TrazerUsuariosDaCompanhia().ToList();
         }
     }
 }

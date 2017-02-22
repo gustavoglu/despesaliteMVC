@@ -111,15 +111,16 @@ namespace Despesa.Lite.Mvc.Models.Repository
 
         public virtual int Remover(T obj)
         {
+            var objARemover = dbSet.SingleOrDefault(o => o.Id == obj.Id);
 
-            obj.Deletado = true;
-            obj.DeletadoEm = DateTime.Now.Date;
-            obj.DeletadoPor = HttpContext.Current.User.Identity.Name;
-            obj.Ativo = false;
+            objARemover.Deletado = true;
+            objARemover.DeletadoEm = DateTime.Now.Date;
+            objARemover.DeletadoPor = HttpContext.Current.User.Identity.Name;
+            objARemover.Ativo = false;
 
-            var entry = db.Entry(obj);
+            var entry = db.Entry(objARemover);
 
-            dbSet.Attach(obj);
+            dbSet.Attach(objARemover);
 
             entry.State = EntityState.Modified;
 

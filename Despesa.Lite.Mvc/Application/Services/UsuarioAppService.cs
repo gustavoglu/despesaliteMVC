@@ -53,8 +53,11 @@ namespace Despesa.Lite.Mvc.Application.Services
             id_companhia = identityDb.Set<ApplicationUser>().SingleOrDefault(u => u.UserName == HttpContext.Current.User.Identity.Name).Id;
             var usuarios = identityDb.Set<ApplicationUser>().Where(u => u.id_companhia == id_companhia).ToList();
             return Mapper.Map<IEnumerable<UsuarioViewModel>>(usuarios);
+        }
 
-
+        public IEnumerable<UsuarioViewModel> TrazerUsuariosCompanhias()
+        {
+            return Mapper.Map<IEnumerable<UsuarioViewModel>>(identityDb.Set<ApplicationUser>().Where(u => u.Companhia == true));
         }
     }
 }

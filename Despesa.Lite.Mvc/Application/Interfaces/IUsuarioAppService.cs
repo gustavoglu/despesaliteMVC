@@ -10,6 +10,8 @@ namespace Despesa.Lite.Mvc.Application.Interfaces
     {
         IEnumerable<UsuarioViewModel> TrazerUsuariosDaCompanhia();
 
+        IEnumerable<UsuarioViewModel> TrazerUsuariosCompanhias();
+
         //UsuarioViewModel AdicionarClientesAoUsuario(string IdUsuario, Guid IdCliente);
     }
 }
