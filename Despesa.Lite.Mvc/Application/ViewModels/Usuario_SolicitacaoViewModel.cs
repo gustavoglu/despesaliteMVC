@@ -17,9 +17,9 @@ namespace Despesa.Lite.Mvc.Application.ViewModels
         [Key]
         public Guid Id { get; set; }
 
-        [Required(ErrorMessage ="")]
-        [MaxLength(100,ErrorMessage ="")]
-        public string Descricao { get; set; }
+        //[Required(ErrorMessage ="")]
+        //[MaxLength(100,ErrorMessage ="")]
+        public string Descricao { get; set; } = "";
 
         public DateTime? DataResposta { get; set; }
 

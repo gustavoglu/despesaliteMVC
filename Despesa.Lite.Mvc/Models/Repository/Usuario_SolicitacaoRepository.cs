@@ -11,6 +11,23 @@ namespace Despesa.Lite.Mvc.Models.Repository
     {
         protected ApplicationUser usuarioSolicitante;
 
+        public override Usuario_Solicitacao Criar(Usuario_Solicitacao obj)
+        {
+            usuarioSolicitante =  db.Set<ApplicationUser>().SingleOrDefault(u => u.UserName == HttpContext.Current.User.Identity.Name);
+
+            if (usuarioSolicitante != null)
+            {
+                obj.id_usuario = usuarioSolicitante.Id;
+
+                return base.Criar(obj);
+
+            }else
+            {
+                return null;
+            }
+         
+        }
+
         public void Aceitar(Usuario_Solicitacao usuario_Solicitacao)
         {
             usuario_Solicitacao.Status = 1;
