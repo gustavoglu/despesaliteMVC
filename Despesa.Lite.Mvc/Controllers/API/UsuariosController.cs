@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace Despesa.Lite.Mvc.Controllers.API
 {
-    [RoutePrefix("api/Usuarios")]
+    
     public class UsuariosController : ApiController
     {
         private readonly IUsuarioAppService _usuarioAppService;
@@ -17,7 +17,9 @@ namespace Despesa.Lite.Mvc.Controllers.API
             _usuarioAppService = new UsuarioAppService();
         }
 
+
         [HttpGet]
+        [Route("api/Usuarios/MeusUsuarios")]
         public IEnumerable<UsuarioViewModel> MeusUsuarios()
         {
             return _usuarioAppService.TrazerUsuariosDaCompanhia().ToList();
@@ -27,7 +29,7 @@ namespace Despesa.Lite.Mvc.Controllers.API
         [Route("api/Usuarios/Companhias")]
         public IEnumerable<UsuarioViewModel> Companhias()
         {
-            return _usuarioAppService.TrazerUsuariosDaCompanhia().ToList();
+            return _usuarioAppService.TrazerCompanhias().ToList();
         }
     }
 }

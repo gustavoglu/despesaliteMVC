@@ -55,9 +55,10 @@ namespace Despesa.Lite.Mvc.Application.Services
             return Mapper.Map<IEnumerable<UsuarioViewModel>>(usuarios);
         }
 
-        public IEnumerable<UsuarioViewModel> TrazerUsuariosCompanhias()
+        public IEnumerable<UsuarioViewModel> TrazerCompanhias()
         {
-            return Mapper.Map<IEnumerable<UsuarioViewModel>>(identityDb.Set<ApplicationUser>().Where(u => u.Companhia == true));
+            var companhias = Mapper.Map<IEnumerable<UsuarioViewModel>>(identityDb.Set<ApplicationUser>().Where(u => u.Companhia == true).ToList());//&& u.Ativo == true));
+            return companhias;
         }
     }
 }
