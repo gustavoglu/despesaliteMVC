@@ -20,8 +20,9 @@ namespace Despesa.Lite.Mvc.Application.Services
 
         public void Aceitar(Usuario_SolicitacaoViewModel usuario_SolicitacaoViewModel)
         {
-            var usuario_solicitacao = Mapper.Map<Usuario_Solicitacao>(usuario_SolicitacaoViewModel);
-            _Usuario_SolicitacaoRepository.Recusar(usuario_solicitacao);
+            var usuario_solicitacao = _Usuario_SolicitacaoRepository.TrazerPorId(usuario_SolicitacaoViewModel.Id);
+
+            _Usuario_SolicitacaoRepository.Aceitar(usuario_solicitacao);
         }
 
         public Usuario_SolicitacaoViewModel Ativar(Usuario_SolicitacaoViewModel usuario_SolicitacaoViewModel)
@@ -55,7 +56,7 @@ namespace Despesa.Lite.Mvc.Application.Services
 
         public void Recusar(Usuario_SolicitacaoViewModel usuario_SolicitacaoViewModel)
         {
-            var usuario_solicitacao = Mapper.Map<Usuario_Solicitacao>(usuario_SolicitacaoViewModel);
+            var usuario_solicitacao = _Usuario_SolicitacaoRepository.TrazerPorId(usuario_SolicitacaoViewModel.Id);
             _Usuario_SolicitacaoRepository.Recusar(usuario_solicitacao);
         }
 

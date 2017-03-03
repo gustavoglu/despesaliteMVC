@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Linq.Expressions;
+using System.Data.Entity;
 
 namespace Despesa.Lite.Mvc.Models.Repository
 {
@@ -28,32 +29,42 @@ namespace Despesa.Lite.Mvc.Models.Repository
          
         }
 
-        public void Aceitar(Usuario_Solicitacao usuario_Solicitacao)
+        public Usuario_Solicitacao Aceitar(Usuario_Solicitacao usuario_Solicitacao)
         {
+            
+
             usuario_Solicitacao.Status = 1;
 
             username = HttpContext.Current.User.Identity.Name;
             usuario = db.Set<ApplicationUser>().SingleOrDefault(u => u.UserName == username);
 
-            usuarioSolicitante = db.Set<ApplicationUser>().SingleOrDefault(u => u.UserName == usuario_Solicitacao.id_usuario);
-            usuarioSolicitante.id_companhia = usuario.Id;
+            usuarioSolicitante = db.Set<ApplicationUser>().SingleOrDefault(u => u.Id == usuario_Solicitacao.id_usuario);
+            usuarioSolicitante.id_companhia = usuario_Solicitacao.id_companhia;
 
-            var entrysolic = db.Entry(usuario_Solicitacao);
             var entryusuarioSolic = db.Entry(usuarioSolicitante);
 
-            entrysolic.State = System.Data.Entity.EntityState.Modified;
+            var entrySolicitacao = db.Entry(usuario_Solicitacao);
+
+            this.db.Set<Usuario_Solicitacao>().Attach(usuario_Solicitacao);
+
+            this.db.Set<ApplicationUser>().Attach(usuarioSolicitante);
+
             entryusuarioSolic.State = System.Data.Entity.EntityState.Modified;
-            
-            this.Atualizar(usuario_Solicitacao);
+
+            entrySolicitacao.State = EntityState.Modified;
+
+            //var objAtualizado = this.Atualizar(usuario_Solicitacao);
 
             this.Salvar();
+
+            return usuario_Solicitacao;
         }
 
-        public void Recusar(Usuario_Solicitacao usuario_Solicitacao)
+        public Usuario_Solicitacao Recusar(Usuario_Solicitacao usuario_Solicitacao)
         {
             usuario_Solicitacao.Status = 2;
 
-            this.Atualizar(usuario_Solicitacao);
+            return this.Atualizar(usuario_Solicitacao);
 
         }
 

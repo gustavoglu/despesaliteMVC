@@ -15,12 +15,14 @@ using Despesa.Lite.Mvc.Application.Services;
 
 namespace Despesa.Lite.Mvc.Controllers.API
 {
+
     public class Usuario_SolicitacoesController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         protected readonly IUsuario_SolicitacaoAppService _usuario_SolicitacaoAppService;
 
+        
         public Usuario_SolicitacoesController()
         {
             _usuario_SolicitacaoAppService = new Usuario_SolicitacaoAppService();
@@ -91,6 +93,48 @@ namespace Despesa.Lite.Mvc.Controllers.API
             _usuario_SolicitacaoAppService.Remover(usuario_SolicitacaoViewModel);
 
             return Ok(usuario_SolicitacaoViewModel);
+        }
+
+        [HttpPut]
+        [ResponseType(typeof(Usuario_SolicitacaoViewModel))]
+        [Route("api/Usuario_Solicitacoes/Aceitar")]
+        public IHttpActionResult AceitaSolicitacao(Guid id, Usuario_SolicitacaoViewModel usuario_SolicitacaoViewModel)
+        {
+            //return Ok(usuario_SolicitacaoViewModel);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != usuario_SolicitacaoViewModel.Id)
+            {
+                return BadRequest();
+            }
+
+            _usuario_SolicitacaoAppService.Aceitar(usuario_SolicitacaoViewModel);
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        [HttpPut]
+        [ResponseType(typeof(Usuario_SolicitacaoViewModel))]
+        [Route("api/Usuario_Solicitacoes/Recusar")]
+        public IHttpActionResult RecusaSolicitacao(Guid id, Usuario_SolicitacaoViewModel usuario_SolicitacaoViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != usuario_SolicitacaoViewModel.Id)
+            {
+                return BadRequest();
+            }
+
+            _usuario_SolicitacaoAppService.Recusar(usuario_SolicitacaoViewModel);
+
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         protected override void Dispose(bool disposing)

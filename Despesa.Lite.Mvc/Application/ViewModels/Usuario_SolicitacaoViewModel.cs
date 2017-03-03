@@ -33,10 +33,10 @@ namespace Despesa.Lite.Mvc.Application.ViewModels
 
         //
         // [Required(ErrorMessage ="")]
-        // public ApplicationUser Usuario { get; set; }
+         public virtual ApplicationUser Usuario { get; set; }
         //
         // [Required(ErrorMessage = "")]
-        // public ApplicationUser Companhia { get; set; }
+         public virtual ApplicationUser Companhia { get; set; }
 
     }
 }
